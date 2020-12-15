@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:12-alpine
+    container_name: react-avancado-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_HOST: localhost
+      POSTGRES_USER: matheus
+      POSTGRES_PASSWORD: db123
+      POSTGRES_DB: react-avancado-db
+      LANG: pt_BR.UTF-8
+    ports:
+      - 5432:5432
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "3"
